@@ -1,0 +1,38 @@
+import time
+import sys
+import os
+import threading  # Импорт threading
+
+def print_pink(text, delay=0.04):
+    """Выводит текст розовым цветом побуквенно с задержкой."""
+    PINK = "\033[95m"  # Код ANSI для розового цвета
+    RESET = "\033[0m"  # Код ANSI для сброса цвета
+
+    for char in text:
+        sys.stdout.write(PINK + char + RESET)
+        sys.stdout.flush()
+        time.sleep(delay)
+    print()  
+
+def print_lyrics():
+    """Выводит текст песни с паузами."""
+    print_pink("А в городе осень без сна", delay=0.04)
+    time.sleep(2)  # Пауза после строки
+
+    print_pink("Что ты меня бросишь я знал", delay=0.04)
+    time.sleep(2)  # Пауза после строки
+
+    print_pink("Я закрываю, глаза закрываю", delay=0.04)
+    time.sleep(2)  # Пауза после строки
+
+    print_pink("Но всё-таки будет весна", delay=0.04)
+    time.sleep(2)  # Пауза после строки
+
+    print_pink("И ты мне уже не нужна", delay=0.04)
+    time.sleep(2)  # Пауза после строки
+
+    print_pink("И я забываю, тебя забываю", delay=0.04)
+    time.sleep(2)  # Пауза после строки
+
+    # Выводим текст песни.
+    print_lyrics()
