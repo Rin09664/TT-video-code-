@@ -1,0 +1,33 @@
+import time
+import sys
+import os
+import random
+
+def print_pink(text, delay=0.04):
+    """Выводит текст розовым цветом побуквенно с задержкой."""
+    PINK = "\033[95m"  # Код ANSI для розового цвета
+    RESET = "\033[0m" # Код ANSI для сброса цвета
+
+    for char in text:
+        sys.stdout.write(PINK + char + RESET) # Выводим символ в розовом цвете и сразу сбрасываем цвет
+        sys.stdout.flush()
+        time.sleep(delay)
+    print()  # Переходим на новую строку после завершения
+
+def print_lyrics():
+    """Выводит текст песни с паузами."""
+    print_pink("Мой иммунитет стабилен из-за тебя,", delay=0.04)
+    time.sleep(2)  # Пауза после строки
+
+    print_pink("Из-за тебя стал ровно дышать", delay=0.04)
+    time.sleep(2)  # Пауза после строки
+
+    print_pink("Так что теперь от тебя ни на шаг,", delay=0.04)
+    time.sleep(2)  # Пауза после строки
+
+    print_pink("Чтоб не волновалась душа.", delay=0.04)
+    time.sleep(2)  # Пауза после строки
+
+
+    # Выводим текст песни.
+    print_lyrics()
