@@ -1,0 +1,75 @@
+import time
+import sys
+import threading
+import os
+
+def print_blue(text, delay=0.04):
+  """Выводит текст по одной букве синим цветом с заданной задержкой."""
+  color = "\033[34m"  # Blue color code
+  reset = "\033[0m"
+  for char in text:
+      sys.stdout.write(color + char)
+      sys.stdout.flush()
+      time.sleep(delay)
+  sys.stdout.write(reset) # Reset color after the whole text is printed
+
+
+def print_lyrics():
+    """Выводит текст песни с паузами."""
+    print_blue("І не втекти мені нікуди", delay=0.04)
+    print()
+    time.sleep(2)  # Пауза после строки
+
+    print_blue("Я бачу очі твої всюди", delay=0.04)
+    print()
+    time.sleep(2)  # Пауза после строки
+
+    print_blue("Пам’ятатиму я твої губи", delay=0.04)
+    print()
+    time.sleep(2)  # Пауза после строки
+
+    print_blue("Без тебе пусто там, де люди", delay=0.04)
+    print()
+    time.sleep(2)  # Пауза после строки
+
+    print_blue("І не втекти мені нікуди", delay=0.04)
+    print()
+    time.sleep(2)  # Пауза после строки
+
+    print_blue("Я бачу очі твої всюди", delay=0.04)
+    print()
+    time.sleep(2)  # Пауза после строки
+
+    print_blue("Десь там, близько до води", delay=0.04)
+    print()
+    time.sleep(2)  # Пауза после строки
+
+    print_blue("Ти далеко не ходи", delay=0.04)
+    print()
+    time.sleep(2)  # Пауза после строки
+
+    print_blue("Там блукають наші сни", delay=0.04)
+    print()
+    time.sleep(2)  # Пауза после строки
+
+    print_blue("Запитають: «Ти куди?»", delay=0.04)
+    print()
+    time.sleep(2)  # Пауза после строки
+
+    print_blue("Десь там, близько до води", delay=0.04)
+    print()
+    time.sleep(2)  # Пауза после строки
+
+    print_blue("Ти далеко не ходи", delay=0.04)
+    print()
+    time.sleep(2)  # Пауза после строки
+
+    print_blue("Там блукають наші сни", delay=0.04)
+    print()
+    time.sleep(2)  # Пауза после строки
+
+    print_blue("Запитають: «Ти куди?»", delay=0.04)
+    print()
+    time.sleep(2)  # Пауза после строки
+
+    print_lyrics()
