@@ -1,0 +1,57 @@
+import time
+import sys
+import os
+
+def print_alternating_blue_cyan(text, delay=0.04):
+    """Выводит текст, чередуя синий и голубой цвета для каждой буквы."""
+    blue = "\033[34m"  # Blue color code
+    cyan = "\033[36m"  # Cyan color code
+    reset = "\033[0m"
+    color = blue  # Start with blue
+
+    for char in text:
+        sys.stdout.write(color + char)
+        sys.stdout.flush()
+        time.sleep(delay)
+
+        # Switch colors
+        color = cyan if color == blue else blue
+
+    sys.stdout.write(reset)  # Reset color after text
+
+def print_lyrics():
+    """Выводит текст песни."""
+    print_alternating_blue_cyan("Мог быть славный денёк", delay=0.04)
+    print()
+    time.sleep(0.5)
+
+    print_alternating_blue_cyan("Но звонок — тебе грозит срок за пару строк", delay=0.04)
+    print()
+    time.sleep(0.5)
+
+    print_alternating_blue_cyan("Да, тут так себе вайб", delay=0.04)
+    print()
+    time.sleep(0.5)
+
+    print_alternating_blue_cyan("Видимо, пора. Ну что ж, бывай, родны край!", delay=0.04)
+    print()
+    time.sleep(0.5)
+
+    print_alternating_blue_cyan("По кустам ночной тропой", delay=0.04)
+    print()
+    time.sleep(0.5)
+
+    print_alternating_blue_cyan("Да, план отстой. Постой, а можно я с тобой?", delay=0.04)
+    print()
+    time.sleep(0.5)
+
+    print_alternating_blue_cyan("Стой! Можно я с тобой?", delay=0.04)
+    print()
+    time.sleep(0.5)
+
+
+if __name__ == "__main__":
+    if os.name == 'nt':
+        os.system('color')
+
+    print_lyrics()
