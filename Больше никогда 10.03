@@ -1,0 +1,31 @@
+import time
+import sys
+import os
+
+def print_red(text, delay=0.04):
+    """Выводит текст красным цветом побуквенно с задержкой."""
+    RED = "\033[91m"  # Код ANSI для красного цвета
+    RESET = "\033[0m" # Код ANSI для сброса цвета
+
+    for char in text:
+        sys.stdout.write(RED + char + RESET) # Выводим символ в красном цвете и сразу сбрасываем цвет
+        sys.stdout.flush()
+        time.sleep(delay)
+    print()  # Переходим на новую строку после завершения
+
+def print_lyrics():
+    """Выводит текст песни с паузами."""
+    print_red("Больше никогда никогда и никогда", delay=0.04)
+    time.sleep(2)  # Пауза после строки
+
+    print_red("Повторяй за мной, никогда, никогда-да-да", delay=0.04)
+    time.sleep(2)  # Пауза после строки
+
+    print_red("Не напишу тебе, ни скажу, что я люблю тебя", delay=0.04)
+    time.sleep(2)  # Пауза после строки
+
+    print_red("Потому что, вся твоя любовь это иллюзия", delay=0.04)
+    time.sleep(2)  # Пауза после строки
+
+    # Выводим текст песни.
+    print_lyrics()
