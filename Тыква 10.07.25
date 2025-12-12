@@ -1,0 +1,74 @@
+import time
+import os
+
+def clear_console():
+  """Очищает консоль (работает в большинстве систем)."""
+  os.system('cls' if os.name == 'nt' else 'clear')
+
+def print_colored_pumpkin(frame):
+    """Выводит ASCII-арт тыквы с разной яркостью."""
+    orange = "\033[38;5;208m"  # Более реалистичный оранжевый
+    reset = "\033[0m"
+
+    if frame == 0:
+        pumpkin = """
+        _.--""--._
+      .'          `.
+     /   O      O   \\
+    |    \  ^^  /    |
+    \   `-----'   /
+      `. _______ .'
+        //_____\\\\
+       (( ____ ))
+        `-----'
+        """
+    elif frame == 1:
+        pumpkin = """
+        _.--""--._
+      .'          `.
+     /   o      o   \\
+    |    \  ^^  /    |
+    \   `-----'   /
+      `. _______ .'
+        //_____\\\\
+       (( ____ ))
+        `-----'
+        """
+    elif frame == 2:
+        pumpkin = """
+        _.--""--._
+      .'          `.
+     /   O      O   \\
+    |    \  ^^  /    |
+    \   `-----'   /
+      `. _______ .'
+        //_____\\\\
+       (( ____ ))
+        `-----'
+        """
+    else:
+      pumpkin = """
+        _.--""--._
+      .'          `.
+     /   .      .   \\
+    |    \  ^^  /    |
+    \   `-----'   /
+      `. _______ .'
+        //_____\\\\
+       (( ____ ))
+        `-----'
+        """
+
+    colored_pumpkin = orange + pumpkin + reset
+    print(colored_pumpkin)
+
+
+try:
+    frame_number = 0
+    while True:
+        clear_console()
+        print_colored_pumpkin(frame_number)
+        time.sleep(0.3)
+        frame_number = (frame_number + 1) % 4 # 4 кадра для анимации
+except KeyboardInterrupt:
+    print("\nАнимация остановлена.")
