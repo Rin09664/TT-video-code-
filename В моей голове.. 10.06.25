@@ -1,0 +1,51 @@
+import sys
+import time
+import os
+
+
+def print_colored_text(text, delay=0.04):
+    """Выводит текст по одной букве с чередованием красного и розового цветов с заданной задержкой."""
+    red = "\033[31m"  # Red color code
+    pink = "\033[95m" # Pink color code
+    reset = "\033[0m"  # Reset color code
+    color_toggle = True  # True for red, False for pink
+
+    for char in text:
+        if color_toggle:
+            sys.stdout.write(red + char)
+        else:
+            sys.stdout.write(pink + char)
+        sys.stdout.flush()
+        time.sleep(delay)
+        color_toggle = not color_toggle # Switch color
+
+    sys.stdout.write(reset)  # Reset color after the whole text is printed
+
+def print_lyrics():
+    """Выводит текст песни."""
+    print_colored_text("В моей голове музыки тонны ", delay=0.04)
+    print()
+    time.sleep(0.5)
+
+    print_colored_text("Завтра исчезнут сны ", delay=0.04)
+    print()
+    time.sleep(0.5)
+
+    print_colored_text("Исчезнешь и ты-ы-ы ", delay=0.04)
+    print()
+    time.sleep(0.5)
+
+    print_colored_text("Но в душе ", delay=0.04)
+    print()
+    time.sleep(0.5)
+
+    print_colored_text("Останутся ноты", delay=0.04)
+    print()
+    time.sleep(0.5)
+
+
+
+if name == "main":
+    if os.name == 'nt':
+        os.system('color') # Enable ANSI escape codes on Windows
+    print_lyrics()
