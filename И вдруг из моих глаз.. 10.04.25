@@ -1,0 +1,39 @@
+import sys
+import time
+import os
+
+def print_colored_text(text, color, delay=0.04):
+    """Выводит текст по одной букве заданным цветом с заданной задержкой."""
+    color_code = color
+    reset = "\033[0m"  # Reset color code
+
+    for char in text:
+        sys.stdout.write(color_code + char)
+        sys.stdout.flush()
+        time.sleep(delay)
+
+    sys.stdout.write(reset)  # Reset color after the whole text is printed
+
+def print_lyrics():
+    """Выводит текст песни."""
+    cyan = "\033[36m"  # Cyan color code
+    red = "\033[31m"  # Red color code
+
+    print_colored_text("И вдруг из моих глаз потекли слезы (And suddenly tears flowed from my eyes)", cyan, delay=0.04)
+    print()
+    time.sleep(0.5)
+
+    print_colored_text("А в голове был всего лишь один вопрос... (And in my head there was only one question...)", cyan, delay=0.04)
+    print()
+    time.sleep(0.5)
+
+    print_colored_text("Что делать дальше...? (What to do next...?)", red, delay=0.04)
+    print()
+    time.sleep(0.5)
+
+
+
+if __name__ == "__main__":
+    if os.name == 'nt':
+        os.system('color') # Enable ANSI escape codes on Windows
+    print_lyrics()
