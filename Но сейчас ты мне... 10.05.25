@@ -1,0 +1,50 @@
+import sys
+import time
+import os
+
+def print_colored_text(text, color, delay=0.04):
+    """Выводит текст по одной букве заданным цветом с заданной задержкой."""
+    color_code = color
+    reset = "\033[0m"  # Reset color code
+
+    for char in text:
+        sys.stdout.write(color_code + char)
+        sys.stdout.flush()
+        time.sleep(delay)
+
+    sys.stdout.write(reset)  # Reset color after the whole text is printed
+
+def print_lyrics():
+    """Выводит текст песни."""
+    red = "\033[31m"  # Red color code
+    pink = "\033[95m" # Pink color code
+
+    print_colored_text("Но сейчас ты мне не нужна", red, delay=0.04)
+    print()
+    print_colored_text("(Я в работе, детка, каждый день в работе)", pink, delay=0.04)
+    print()
+    time.sleep(0.5)
+
+    print_colored_text("Ты мне не нужна", red, delay=0.04)
+    print()
+    print_colored_text("(Де-деньги прячутся — я на них охотник)", pink, delay=0.04)
+    print()
+    time.sleep(0.5)
+
+    print_colored_text("Ты мне не нужна", red, delay=0.04)
+    print()
+    print_colored_text("(Я на мувах, детка, становлюсь дороже)", pink, delay=0.04)
+    print()
+    time.sleep(0.5)
+
+    print_colored_text("Ты мне не нужна", red, delay=0.04)
+    print()
+    print_colored_text("(Я сегодня занят, наберу попозже)", pink, delay=0.04)
+    print()
+    time.sleep(0.5)
+
+
+if __name__ == "__main__":
+    if os.name == 'nt':
+        os.system('color') # Enable ANSI escape codes on Windows
+    print_lyrics()
