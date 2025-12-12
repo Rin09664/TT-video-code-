@@ -1,0 +1,61 @@
+import time
+import sys
+import threading
+import os
+import random
+
+def print_rainbow(text, delay=0.04):
+    """Выводит текст по одной букве случайным цветом с заданной задержкой."""
+    colors = [
+        "\033[31m",  # Red
+        "\033[32m",  # Green
+        "\033[33m",  # Yellow
+        "\033[34m",  # Blue
+        "\033[35m",  # Magenta
+        "\033[36m",  # Cyan
+        "\033[91m",  # Light Red
+        "\033[92m",  # Light Green
+        "\033[93m",  # Light Yellow
+        "\033[94m",  # Light Blue
+        "\033[95m",  # Light Magenta
+        "\033[96m",  # Light Cyan
+    ]
+    reset = "\033[0m"
+    for char in text:
+        color = random.choice(colors)
+        sys.stdout.write(color + char)
+        sys.stdout.flush()
+        time.sleep(delay)
+    sys.stdout.write(reset)  # Reset color after the whole text is printed
+
+
+def print_lyrics():
+    """Выводит текст песни с паузами, каждая буква разного цвета."""
+    print_rainbow("Girl, you know you make my cold heart warm with a touch", delay=0.04)
+    print()
+    time.sleep(2)
+
+    print_rainbow("One kiss, then we fuckin', I just can’t get enough", delay=0.04)
+    print()
+    time.sleep(2)
+
+    print_rainbow("Put it on me, that’s the best part, baby, the trust", delay=0.04)
+    print()
+    time.sleep(2)
+
+    print_rainbow("Trust me, I got nothin' for you other than love", delay=0.04)
+    print()
+    time.sleep(2)
+
+    print_rainbow("I remember eatin' pussy on the back of the bus", delay=0.04)
+    print()
+    time.sleep(2)
+
+if __name__ == "__main__":
+    if os.name == 'nt':
+        os.system('color')
+
+    song_thread = threading.Thread(target=play_song)
+    song_thread.start()
+
+    print_lyrics()
